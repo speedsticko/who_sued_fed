@@ -9,11 +9,11 @@ function index (req, res) {
 
   // Define API request parameters
   var reqParameters = {
-    api_key: 'r552g2n96genj4vbp2jpae7m',
+    api_key: 'c9jckm4neq4nhancmd6pbqmd',
     offset: 0,
     resultCount: 10,
-    fullText: 'citizenship and immigration'
-  },
+    fullText: 'citizenship+and+immigration'
+    },
     reqPath = '/v1/search/en/?';
 
   for (param in reqParameters) {
@@ -24,7 +24,7 @@ function index (req, res) {
 
   reqPath = reqPath.slice(0,reqPath.length-1);
 
-//  res.end(reqPath);
+// res.end(reqPath);
 
   // Define HTTP request parameters
   var options = {
