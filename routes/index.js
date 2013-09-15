@@ -2,7 +2,13 @@
  * Routes for CanLII API Demo
  */
 
+// Generic welcome page
 exports.index = function (req, res) {
+  res.render('index', {'title': 'who_sued_fed'});
+}
+
+// Hardcoded demo for CIC
+exports.cic = function (req, res) {
 
   // Require request module for simplified HTTP GET requests
   var request = require("request");
@@ -34,8 +40,6 @@ exports.index = function (req, res) {
           patt_d = /v[.].+Canada.+Citizenship\s+and\s+Immigration/,
           patt_p = /Canada.+Citizenship\s+and\s+Immigration.+v[.].+/;
 
-      console.log(body);
-
       // Parse API response and populate the data object
       for (var i=0; i<body['results'].length-1; i++) {
 
@@ -63,8 +67,14 @@ exports.index = function (req, res) {
         }
       }
 
-      // Return data object to requestor (i.e. browser)
-      res.end(JSON.stringify(data_object, null, "\t"));
+      var data_array = [['Year', 'Plaintiff', 'Defendant']];
+
+      for(year in data_object) {
+        data_array.push([year, data_object[year].p, data_object[year].d]);
+      }
+
+      // Return data array to requestor (i.e. browser)
+      res.end(JSON.stringify(data_array));
 
     }
   }
