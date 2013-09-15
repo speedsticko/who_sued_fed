@@ -1,5 +1,5 @@
 {
-  "name": "application-name",
+  "name": "who_sued_fed",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -9,5 +9,9 @@
     "express": "3.1.0",
     "jade": "*",
     "request": "*"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
   }
 }
