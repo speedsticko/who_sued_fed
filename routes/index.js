@@ -57,7 +57,7 @@ exports.index = function (req, res) {
           if(patt_d.test(body['results'][i]["case"]["title"])) {
             currRecord.d += 1;
           }
-          else if(patt_d.test(body['results'][i]["case"]["title"])) {
+          else if(patt_p.test(body['results'][i]["case"]["title"])) {
             currRecord.p += 1;
           }
         }
